@@ -1,2 +1,4 @@
 # BreakPointDemo
-断点续传，断点续传文件下载
+断点续传文件下载
+demo
+![](https://github.com/awenzeng/BreakPointDemo/blob/master/resource/demo.gif)
