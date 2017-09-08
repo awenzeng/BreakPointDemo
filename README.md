@@ -1,5 +1,5 @@
-# BreakPointDemo
-[HTTP文件断点续传原理解析](http://blog.csdn.net/awenyini/article/details/77898704)
+# 断点续传
+[HTTP文件断点续传原理解析](http://blog.csdn.net/awenyini/article/details/77898704)，欢迎star或fork
 
 # 流程图
 ![](http://awenzeng.me/assets/img/tech_breakpoint_flowchart.png)
