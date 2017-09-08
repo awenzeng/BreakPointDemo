@@ -18,7 +18,7 @@ public class DownloadService extends Service {
 
     private FileInfoThread mFileInfoThread;
     private DownloadThread mDownloadThread;
-    private DatabaseOperation mDatabaseManager = null;
+    private DatabaseOperation mDatabaseOperation = null;
 
     public static final int MSG_FILEINFO = 0;
     public static final String ACTION_START = "ACTION_START";
@@ -37,14 +37,14 @@ public class DownloadService extends Service {
                 case MSG_FILEINFO:
                     FileInfo fileInfo = (FileInfo) msg.obj;
                     Log.e(TAG,"下载文件信息:"+fileInfo.toString());
-                    List<DownloadInfo> downloadInfos = mDatabaseManager.query(fileInfo.getUrl());
+                    List<DownloadInfo> downloadInfos = mDatabaseOperation.query(fileInfo.getUrl());
                     DownloadInfo info;
-                    if (downloadInfos.size() == 0) {
+                    if (downloadInfos.size() == 0){//第一次
                         info = new DownloadInfo(0, fileInfo.getUrl(), 0, fileInfo.getLength(), 0);
                     } else {
                         info = downloadInfos.get(0);
                     }
-                    mDownloadThread = new DownloadThread(DownloadService.this,mDatabaseManager,info,fileInfo);
+                    mDownloadThread = new DownloadThread(DownloadService.this, mDatabaseOperation,info,fileInfo);
                     mDownloadThread.start();
                     break;
             }
@@ -54,7 +54,7 @@ public class DownloadService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mDatabaseManager = new DatabaseOperation(this);
+        mDatabaseOperation = new DatabaseOperation(this);
     }
 
     @Override
@@ -68,7 +68,6 @@ public class DownloadService extends Service {
             if (mDownloadThread != null) {
                 mDownloadThread.setPause(true);
             }
-
         }
         return super.onStartCommand(intent, flags, startId);
     }

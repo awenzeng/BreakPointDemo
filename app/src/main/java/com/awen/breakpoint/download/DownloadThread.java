@@ -72,14 +72,12 @@ public class DownloadThread extends Thread {
                 int len = -1;
                 long time = System.currentTimeMillis();
                 while ((len = is.read(buffer)) != -1) {
-
                     //下载暂停时，保存进度
                     if (isPause) {
                         Log.e(TAG,"保存进度文件(size):"+progress + "");
                         mDatabaseOperation.update(mFileInfo.getUrl(), mFileInfo.getId(), progress);
                         return;
                     }
-
                     //写入文件
                     raf.write(buffer, 0, len);
                     //把下载进度发送广播给Activity
