@@ -1,5 +1,5 @@
 # BreakPointDemo
-断点续传文件下载
+[HTTP文件断点续传原理解析](http://blog.csdn.net/awenyini/article/details/77898704)
 
 # 流程图
 ![](http://awenzeng.me/assets/img/tech_breakpoint_flowchart.png)
