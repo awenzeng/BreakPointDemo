@@ -4,10 +4,6 @@
 # 流程图
 ![](http://awenzeng.me/assets/img/tech_breakpoint_flowchart.png)
 
-# Demo
-
-![](https://github.com/awenzeng/BreakPointDemo/blob/master/resource/demo.gif)
-
 # 核心原理
 ```java
   HttpURLConnection connection;
@@ -68,3 +64,7 @@
             e.printStackTrace();
         }
 ```
+
+# Demo演示
+
+![](https://github.com/awenzeng/BreakPointDemo/blob/master/resource/demo.gif)
